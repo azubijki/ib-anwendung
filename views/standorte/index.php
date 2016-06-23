@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\StandorteSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Standortes';
+$this->title = 'Standorte';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="standorte-index">
@@ -24,7 +24,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'ID',
             'standort_name',
             'siegel',
 

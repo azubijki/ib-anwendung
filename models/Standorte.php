@@ -39,7 +39,7 @@ class Standorte extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ID' => 'ID',
+			'ID' => 'ID',
             'standort_name' => 'Standort Name',
             'siegel' => 'Siegel',
         ];
