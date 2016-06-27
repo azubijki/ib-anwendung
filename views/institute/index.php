@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\InstituteSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Institutes';
+$this->title = 'Institute';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="institute-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Institute', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Neuer Eintrag', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,10 +24,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'institut_name',
             'institut_abk',
-            'standorte_ID',
+            'standorte.standort_name',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

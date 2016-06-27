@@ -40,7 +40,7 @@ class Standorte extends \yii\db\ActiveRecord
     {
         return [
 			'ID' => 'ID',
-            'standort_name' => 'Standort Name',
+            'standort_name' => 'Standort',
             'siegel' => 'Siegel',
         ];
     }

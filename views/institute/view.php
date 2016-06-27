@@ -6,8 +6,8 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Institute */
 
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Institutes', 'url' => ['index']];
+$this->title = $model->institut_name;
+$this->params['breadcrumbs'][] = ['label' => 'Institute', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="institute-view">
@@ -16,10 +16,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id, 'standorte_ID' => $model->standorte_ID], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id, 'standorte_ID' => $model->standorte_ID], [
+        <?= Html::a('Löschen', ['delete', 'id' => $model->id, 'standorte_ID' => $model->standorte_ID], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Sind Sie sicher?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'institut_name',
             'institut_abk',
-            'standorte_ID',
+            'standorte.standort_name',
         ],
     ]) ?>
 

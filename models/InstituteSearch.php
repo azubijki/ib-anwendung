@@ -15,11 +15,12 @@ class InstituteSearch extends Institute
     /**
      * @inheritdoc
      */
+	 
     public function rules()
     {
         return [
-            [['id', 'standorte_ID'], 'integer'],
-            [['institut_name', 'institut_abk'], 'safe'],
+			[['standorte_ID'], 'integer'],
+            [['institut_name', 'institut_abk'], 'safe']
         ];
     }
 

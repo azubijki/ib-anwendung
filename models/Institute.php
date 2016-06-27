@@ -9,7 +9,7 @@ use Yii;
  *
  * @property integer $id
  * @property string $institut_name
- * @property string $institut_abk
+ * @property string $institut_abk 
  * @property integer $standorte_ID
  *
  * @property Standorte $standorte
@@ -45,9 +45,9 @@ class Institute extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'institut_name' => 'Institut Name',
-            'institut_abk' => 'Institut Abk',
-            'standorte_ID' => 'Standorte  ID',
+            'institut_name' => 'Institut',
+            'institut_abk' => 'Abkürzung',
+            'standorte_ID' => 'Standort',
         ];
     }
 
