@@ -1,5 +1,8 @@
 <?php
 
+//Anleitung zum Erstellen von Spalten im GridView inkl. funktionierender Suchleiste: 
+//http://www.yiiframework.com/wiki/653/displaying-sorting-and-filtering-model-relations-on-a-gridview/
+
 namespace app\models;
 
 use Yii;
@@ -12,6 +15,7 @@ use app\models\Institute;
  */
 class InstituteSearch extends Institute
 {
+    public $Standort; //Variable für den Standortnamen erstellt
     /**
      * @inheritdoc
      */
@@ -19,8 +23,7 @@ class InstituteSearch extends Institute
     public function rules()
     {
         return [
-			[['standorte_ID'], 'integer'],
-            [['institut_name', 'institut_abk'], 'safe']
+            [['institut_name', 'institut_abk', 'Standort'], 'safe'] //Standort als safe deklariert
         ];
     }
 
@@ -42,7 +45,7 @@ class InstituteSearch extends Institute
      */
     public function search($params)
     {
-        $query = Institute::find();
+        $query = Institute::find()->joinWith(['standorte']);//MySQL join für die Relation zur Tabelle "standorte"
 
         // add conditions that should always apply here
 
@@ -57,15 +60,22 @@ class InstituteSearch extends Institute
             // $query->where('0=1');
             return $dataProvider;
         }
+        
+        //Hier wird definiert, wie die Tabelle sortiert wird
+        $dataProvider->sort->attributes['Standort'] = [
+            'asc' => ['standorte.standort_name' => SORT_ASC],
+            'desc' => ['standorte.standort_name' => SORT_DESC],
+        ];
 
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'standorte_ID' => $this->standorte_ID,
+            'standorte_ID' => $this->standorte_ID
         ]);
 
         $query->andFilterWhere(['like', 'institut_name', $this->institut_name])
-            ->andFilterWhere(['like', 'institut_abk', $this->institut_abk]);
+            ->andFilterWhere(['like', 'institut_abk', $this->institut_abk])
+            ->andFilterWhere(['like', 'standorte.standort_name', $this->Standort]);
 
         return $dataProvider;
     }

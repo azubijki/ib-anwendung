@@ -22,11 +22,13 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'institut_name',
+'institut_name',
             'institut_abk',
-            'standorte.standort_name',
+            //Spalte für den Standortnamen
+            [
+                'attribute' => 'Standort', //Spaltenüberschrift
+                'value' => 'standorte.standort_name' //Daten in der Spalten (tabelle.spalte)
+            ],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
