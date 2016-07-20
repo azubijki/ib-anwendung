@@ -70,7 +70,6 @@ class InstituteSearch extends Institute
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'standorte_ID' => $this->standorte_ID
         ]);
 
         $query->andFilterWhere(['like', 'institut_name', $this->institut_name])
